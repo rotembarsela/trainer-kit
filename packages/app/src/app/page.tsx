@@ -5,10 +5,11 @@ import InstagramFeed from "./components/Home/InstagramFeed";
 import Contact from "./components/Home/Contact";
 import Header from "./components/Header/Header";
 import { LinearGradient } from "./components/UI/LinearGradient";
+import DirectionWrapper from "./components/DirectionWrapper/DirectionWrapper";
 
 export default function Home() {
   return (
-    <>
+    <DirectionWrapper>
       <LinearGradient />
       <Header />
       <main className="">
@@ -21,6 +22,6 @@ export default function Home() {
         />
       </main>
       <Footer />
-    </>
+    </DirectionWrapper>
   );
 }

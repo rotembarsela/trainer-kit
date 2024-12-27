@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { RxSun, RxMoon } from "react-icons/rx";
+import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 
 export default function DarkModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(
-    document.documentElement.classList.contains("dark")
-  );
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
@@ -48,9 +46,9 @@ export default function DarkModeToggle() {
       className="hover:text-emerald-700 dark:hover:text-emerald-900 p-2 rounded"
     >
       {isDarkMode ? (
-        <RxSun className="w-6 h-6" />
+        <SunIcon className="w-6 h-6" />
       ) : (
-        <RxMoon className="w-6 h-6" />
+        <MoonIcon className="w-6 h-6" />
       )}
     </button>
   );
