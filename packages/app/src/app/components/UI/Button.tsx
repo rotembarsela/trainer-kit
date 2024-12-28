@@ -1,4 +1,5 @@
 import { cn } from "@/app/utils/cn";
+import { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = {
   variant?: "success" | "info" | "delete";
@@ -6,7 +7,7 @@ type ButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
   children: React.ReactNode;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
   variant = "info",
