@@ -19,10 +19,6 @@ export default {
       },
     },
     extend: {
-      boxShadow: {
-        emeraldFocus:
-          "0 10px 38px -10px hsla(206,22%,7%,.35), 0 10px 20px -15px hsla(206,22%,7%,.2), 0 0 0 2px #10B981",
-      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

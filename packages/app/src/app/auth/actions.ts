@@ -2,14 +2,24 @@
 
 import { NextResponse } from "next/server";
 
+export type LoginState = {
+  success: boolean;
+  error: string | undefined;
+  response?: NextResponse<unknown> | undefined;
+};
+
 interface LoginFormData {
   userCode: string | undefined;
 }
 
-export async function login(formData: FormData) {
+export async function loginAction(
+  prevState: LoginState,
+  formData: FormData
+): Promise<LoginState> {
+  console.log(prevState);
   const userCode = formData.get("userCode") as LoginFormData["userCode"];
   if (!userCode) {
-    throw new Error("User Code is required");
+    return { success: false, error: "יש להכניס קוד", response: undefined };
   }
 
   try {
@@ -31,12 +41,17 @@ export async function login(formData: FormData) {
         sameSite: "strict",
         maxAge: 60 * 60 * 24 * 7, // 7 days
       });
+      return { success: true, error: undefined, response: res };
     } else {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Login failed");
+      return {
+        success: false,
+        error: errorData.message || "התחברות נכשלה",
+        response: undefined,
+      };
     }
   } catch (error) {
     console.error("Error during login:", error);
-    throw new Error("Failed to login. Please try again.");
+    return { success: false, error: "התחברות נכשלה", response: undefined };
   }
 }

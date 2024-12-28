@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Form from "next/form";
 import DarkModeToggle from "../DarkMode/DarkModeToggle";
+import LoginForm from "../Forms/LoginForm";
 import { LockClosedIcon } from "@radix-ui/react-icons";
-import Button from "../UI/Button";
 import { CustomPopover } from "../UI/CustomPopover ";
-import { login } from "@/app/auth/actions";
 
 interface NavLink {
   label: string;
@@ -50,17 +48,7 @@ export default function Header() {
             <CustomPopover
               triggerContent={<LockClosedIcon className="w-6 h-6" />}
             >
-              <Form action={login} className="flex flex-col gap-2.5">
-                <label htmlFor="userCode">קוד:</label>
-                <input
-                  id="userCode"
-                  name="userCode"
-                  className="border border-solid border-foreground dark:border-foregroundDark"
-                />
-                <Button variant="success" type="submit">
-                  התחברות
-                </Button>
-              </Form>
+              <LoginForm />
             </CustomPopover>
           </li>
           <li>
