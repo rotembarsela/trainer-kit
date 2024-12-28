@@ -36,19 +36,16 @@ export default function Testimonials() {
         </h2>
         <ul className="grid gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <li key={index} className="bg-white shadow-lg p-6 rounded-lg">
-              <p className="font-bold text-gray-700">{testimonial.name}</p>
-              <time
-                className="text-sm text-gray-500"
-                dateTime={testimonial.date}
-              >
+            <li key={index} className="border border-gray-300 p-6 rounded-lg">
+              <p className="font-bold">{testimonial.name}</p>
+              <time className="text-sm" dateTime={testimonial.date}>
                 {new Date(testimonial.date).toLocaleDateString("he-IL", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
                 })}
               </time>
-              <blockquote className="text-lg italic text-gray-800 mt-4">
+              <blockquote className="text-lg italic mt-4">
                 {testimonial.text}
               </blockquote>
             </li>

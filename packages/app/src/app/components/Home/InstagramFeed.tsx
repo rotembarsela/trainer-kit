@@ -52,7 +52,7 @@ export default function InstagramFeed() {
     <section className="py-10">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">
-          פיד האינסטגרם שלי
+          פיד אינסטגרם
         </h2>
         <div className="grid gap-4 md:grid-cols-3">
           {mockPosts.map((post) => (
@@ -61,7 +61,7 @@ export default function InstagramFeed() {
               href={post.permalink}
               target="_blank"
               rel="noopener noreferrer"
-              className="block"
+              className="block rounded-lg overflow-hidden shadow-lg"
             >
               <div className="relative group">
                 <Image
@@ -69,7 +69,7 @@ export default function InstagramFeed() {
                   alt={post.caption || "פוסט אינסטגרם"}
                   width={300}
                   height={300}
-                  className="w-full h-60 object-cover rounded-lg shadow-lg"
+                  className="w-full h-60 object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <p className="text-white text-center px-4">
