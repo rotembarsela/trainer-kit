@@ -2,14 +2,24 @@
   "name": "trainer-kit",
   "version": "1.0.0",
   "scripts": {
+    "format": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "private": true,
   "workspaces": [
-    "packages/app",
-    "packages/server"
+    "apps/*",
+    "packages/*"
   ],
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
 }
