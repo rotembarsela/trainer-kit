@@ -2,10 +2,50 @@ version: "3.8"
 
 services:
   client:
+    container_name: ${PROJECT_NAME}-client
+    image: ${PROJECT_NAME}-client
     build:
       context: ../../apps/client
-      dockerfile: ../../infra/docker/client/Dockerfile
+      dockerfile: ../../infra/docker/client/Dockerfile.dev
     ports:
       - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8081
+    volumes:
+      - ../../apps/client:/app
+      - /app/node_modules
+    profiles:
+      - dev
+
+  server:
+    container_name: ${PROJECT_NAME}-server
+    image: ${PROJECT_NAME}-server
+    build:
+      context: ../../apps/server
+      dockerfile: ../../infra/docker/server/Dockerfile.dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../../apps/server:/app
+    profiles:
+      - dev
+
+  client-prod:
+    container_name: ${PROJECT_NAME}-client-prod
+    image: ${PROJECT_NAME}-client-prod
+    build:
+      context: ../../apps/client
+      dockerfile: ../../infra/docker/client/Dockerfile.prod
+    ports:
+      - "3000:3000"
+    profiles:
+      - prod
+
+  server-prod:
+    container_name: ${PROJECT_NAME}-server-prod
+    image: ${PROJECT_NAME}-server-prod
+    build:
+      context: ../../apps/server
+      dockerfile: ../../infra/docker/server/Dockerfile.prod
+    ports:
+      - "8080:8080"
+    profiles:
+      - prod

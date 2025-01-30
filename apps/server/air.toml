@@ -1,0 +1,11 @@
+# Config for Air
+root = "."  
+tmp_dir = "tmp"
+
+[build]
+  bin = "tmp/main"
+  cmd = "go build -o tmp/main"
+  exclude_dir = ["tmp", "vendor", "node_modules"]
+
+[log]
+  level = "debug"
