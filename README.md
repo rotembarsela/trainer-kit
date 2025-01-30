@@ -1,4 +1,4 @@
-# Trainer Kit 🏍b
+# Trainer Kit
 
 Trainer Kit is a **full-stack monorepo application** built with:
 
@@ -24,7 +24,7 @@ trainer-kit/
 │   │   ├️— docker-compose.yml
 │   │   ├️— .env
 │   │   └️— start.sh  # Shell script to manage containers
-│️— packages/          # Shared libraries (if any)
+│️— packages/          # Shared libraries
 ```
 
 ---
@@ -46,7 +46,7 @@ Ensure you have:
 
 ---
 
-### **2⃣ Run in Development Mode (**``**)**
+### **2⃣ Run in Development Mode**
 
 Development mode enables: 👉 **Hot-reloading** for both **Next.js** (client) & **Go** (server)\
 👉 **Volumes** for live file updates
@@ -73,9 +73,10 @@ docker-compose --profile dev down -v
 
 ---
 
-### **3⃣ Run in Production Mode (**``**)**
+### **3⃣ Run in Production Mode**
 
-Production mode: 👉 Builds **optimized containers**\
+Production mode:
+👉 Builds **optimized containers**\
 👉 Uses **built Next.js & Go binaries**\
 👉 **Removes volumes** for a clean deployment
 
@@ -105,7 +106,7 @@ docker-compose --profile prod down -v
 
 This project loads environment variables from an `.env` file inside `infra/docker/`.
 
-#### **📄 Create **``** File**
+#### **📄 Create `.env` File**
 
 ```sh
 PROJECT_NAME=trainer-kit
@@ -150,7 +151,3 @@ Feel free to open an issue or create a pull request if you find any bugs or impr
 ## **🐟 License**
 
 MIT License © 2025 Trainer Kit
-
-```
-
-```
